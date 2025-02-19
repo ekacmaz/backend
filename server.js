@@ -21,7 +21,7 @@ const Message = mongoose.model('Message', messageSchema);
 // API routes
 app.get('/api/data', async (req, res) => {
   try {
-    const messages = await Message.find();
+    const messages = await Message.find().sort({ createdAt: -1 }); // Newest first
     res.json(messages);
   } catch (err) {
     res.status(500).json({ error: 'Server error' });
