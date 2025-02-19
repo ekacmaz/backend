@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 // Define schema and model
 const messageSchema = new mongoose.Schema({
   message: String,
-});
+}, { timestamps: true });
 const Message = mongoose.model('Message', messageSchema);
 
 // API routes
